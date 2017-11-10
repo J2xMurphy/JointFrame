@@ -16,7 +16,7 @@ def simulthread(args):
 	print(str(threads)+" threads remaining!")
 	return args[2]
 
-	
+#Generates average color depth of a line
 def avgcolor(args):
 	totalcolor=0
 	current=args[2][3][(args[0])]
@@ -26,6 +26,8 @@ def avgcolor(args):
 	args[2][2]+=(totalcolor/j)
 	thread.exit()
 	
+#Given average color depth, returns qualifying pixels
+#0 is black, 255 is white/a joint
 def decolorize(args):
 	coloraverage = args[2][3][1]
 	current=args[2][3][0][args[0]]

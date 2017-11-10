@@ -20,3 +20,15 @@ def save(nplist,outfile):
 	cv2.imwrite(outfile+'.jpg',nplist)
 	print("Saved")
 	
+def getSettings():
+	f = open('Settings.txt','r')
+	cont = True
+	settings=[]
+	while cont==True:
+		temp = f.readline()
+		if temp != '':
+			temp = temp.replace("\r\n","")
+			settings.append(temp)
+		else:
+			cont=False
+	return settings
