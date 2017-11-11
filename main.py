@@ -12,11 +12,13 @@ def main(img):
 	ender = [0]* len(current[0])
 	ender = [ender]*len(current)
 	simulthread([decolorize,len(current),ender,[current,coloraverage]])
-	save(ender,'test')
+	save(ender,'Base0')
 	cstats = clusterization(ender,settings[1])
-	save(cstats[1],'test2')
+	#save(cstats[1],'test2')
 	jointed = jointization(cstats)
-	save(jointed,'Base0')
+	save(jointed,'Base1')
+	labeled = labelization(jointed,cstats)
+	save(labeled,'Base2')
 	return
 
 main('Base.jpg')
