@@ -4,7 +4,7 @@ from lib.multhread import *
 from lib.imgproc import *
 
 def main(img):
-	settings = getSettings();
+	settings = getStrings('Settings.txt');
 	print(settings)
 	sys.setrecursionlimit(int(settings[2]))
 	current = cv2.imread(img,0)
@@ -15,6 +15,7 @@ def main(img):
 	save(ender,'Base0')
 	cstats = clusterization(ender,settings[1])
 	#save(cstats[1],'test2')
+	logexport(str(cstats[0]),"cstats.jt")
 	jointed = jointization(cstats)
 	save(jointed,'Base1')
 	labeled = labelization(jointed,cstats)
