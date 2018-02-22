@@ -19,7 +19,7 @@ def begintests(testname):
 #---------------------------------------------------------------------------
 	angles = []
 	for item in newstrings:
-		angles.append(round(calcAngle(item[0],item[1],cstats),2))
+		angles.append(round(calcAngle(item[0],item[1],cstats,1),2))
 #---------------------------------------------------------------------------
 
 #---------------------------------------------------------------------------
@@ -31,7 +31,8 @@ def begintests(testname):
 	total=0
 	print("\n")
 	for ans in solutions:
-		currenttest=(angles[i]<=round(float(ans),2)+.1 or angles[i]>=round(float(ans),2)+.1)
+		#currenttest=(round(angles[i],2)<=round(float(ans),2)+.1 and round(angles[i],2)<=round(float(ans),2)-.1)
+		currenttest = round(float(ans),2)-.1<=round(angles[i],2)<=round(float(ans),2)+.1
 		correct+=currenttest
 		total+=1
 		print("Test "+str(i)+": ["+str(angles[i])+" : "+ans+"]  "+str(currenttest==1))
@@ -40,3 +41,8 @@ def begintests(testname):
 #---------------------------------------------------------------------------
 
 begintests("tests/connections1")
+begintests("tests/connections2")
+begintests("tests/connections3")
+begintests("tests/connections4")
+begintests("tests/connections5")
+begintests("tests/connections6")

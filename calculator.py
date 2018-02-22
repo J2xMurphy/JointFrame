@@ -20,7 +20,7 @@ def main():
 	angles = []
 	fs =""
 	for item in newstrings:
-		tmp = calcAngle(item[0],item[1],cstats)
+		tmp = calcAngle(item[0],item[1],cstats,0)
 		angles.append(tmp)
 		fs+=("("+str(item[0])+","+str(item[1])+") : "+str(tmp)+"\r\n")
 	print(angles)

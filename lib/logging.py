@@ -11,7 +11,7 @@ def tupStringtoIntList(strlist):
 		if letters != "]":
 			curstring+=letters
 		else:
-			print(curstring)
+			#print(curstring)
 			newlists.append(curstring)
 			curstring=""
 	actlists=[]
