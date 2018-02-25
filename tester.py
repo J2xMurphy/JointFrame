@@ -1,8 +1,9 @@
 import cv2
+import sys
 from lib.logging import *
 from lib.c8 import *
 #This is a test version of the angle calculator
-def begintests(testname):
+def begintests(testname,settings):
 #---------------------------------------------------------------------------
 # These are the usable values in cstats.jt
 	f = open(testname+".jt","r")
@@ -19,7 +20,7 @@ def begintests(testname):
 #---------------------------------------------------------------------------
 	angles = []
 	for item in newstrings:
-		angles.append(round(calcAngle(item[0],item[1],cstats,1),2))
+		angles.append(round(calcAngle(item[0],item[1],cstats,settings[0]),2))
 #---------------------------------------------------------------------------
 
 #---------------------------------------------------------------------------
@@ -39,10 +40,13 @@ def begintests(testname):
 		i+=1
 	print(str(correct)+"/"+str(total))
 #---------------------------------------------------------------------------
-
-begintests("tests/connections1")
-begintests("tests/connections2")
-begintests("tests/connections3")
-begintests("tests/connections4")
-begintests("tests/connections5")
-begintests("tests/connections6")
+settings = [0]
+for arg in sys.argv:
+	if arg == 'v':
+		settings[0]=1
+begintests("tests/connections1",settings)
+begintests("tests/connections2",settings)
+begintests("tests/connections3",settings)
+begintests("tests/connections4",settings)
+begintests("tests/connections5",settings)
+begintests("tests/connections6",settings)
